@@ -2,7 +2,7 @@
 
 Why waste time spinning a vanilla Ubuntu Virtual Machine on Hyper-V / VM-Ware when you can get going with WSL2.
 
-The `user-data` file provides a pre-configured Ubuntu-24.04 WSL2 will all the bells-and-whistles you need to get
+The `user-data` file provides a pre-configured Ubuntu-24.04 WSL2 with all the bells-and-whistles you need to get
 running in no time, plus no fighting with Virtual Switches and Enterprise Hypervisor issues.
 
 
