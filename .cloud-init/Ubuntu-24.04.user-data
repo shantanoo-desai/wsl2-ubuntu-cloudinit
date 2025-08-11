@@ -1,0 +1,44 @@
+#cloud-config
+groups:
+  - docker
+users:
+- name: admin
+  gecos: WSL2 Admin
+  groups: [adm,dialout,docker,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev]
+  no-user-group: true # image already has a group called 'admin' and won't let the user name be the same hence don't create the group but the user
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  shell: /bin/bash
+
+write_files:
+- path: /etc/wsl.conf
+  append: true
+  content: |
+    [user]
+    default=admin
+
+    [network]
+    generateResolvConf = false
+    generateHosts = false
+
+    [automount]
+    enabled = true
+    root = /mnt/
+    options = "metadata"
+
+packages:
+  # add more stuff here...
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - docker.io
+  - docker-compose-v2
+  - gnupg-agent
+  - software-properties-common
+  - git
+  - python3-pip
+  - make
+  - jq
+
+runcmd:
+  # add commands to run here..
+  - echo 'Hello from WSL2+ubuntu' > /home/admin/test.txt
